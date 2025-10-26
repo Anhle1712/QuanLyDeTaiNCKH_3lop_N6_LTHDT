@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DTO_QuanLiDeTaiNCKH.DeTai_DTO">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABEAAAgACIQOAAgAARAEAAEAAAIAAAACAAAAAEAAA=</HashCode>
+      <FileName>DeTai_DTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO_QuanLiDeTaiNCKH.DeTaiCongNghe_DTO">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="DTO_QuanLiDeTaiNCKH.DeTai_DTO" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="1.625" />
+        <Point X="8.25" Y="1.625" />
+        <Point X="8.25" Y="1.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>gAAAkAAAAAAAQABAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>DeTaiCongNghe_DTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DTO_QuanLiDeTaiNCKH.DeTaiKinhTe_DTO">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEAAAAgAAQABAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DeTaiKinhTe_DTO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DTO_QuanLiDeTaiNCKH.DeTaiLyThuyet_DTO">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAEAACAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>DeTaiLyThuyet_DTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DTO_QuanLiDeTaiNCKH.IHoTroNghienCuu" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IHoTroNghienCuu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_QuanLiDeTaiNCKH", "GUI_QuanLiDeTaiNCKH\GUI_QuanLiDeTaiNCKH.csproj", "{4801B71B-4C7F-46DF-BE08-E6CF9091AEB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL_QuanLiDeTaiNCKH", "BLL_QuanliDeTaiNCKH\BLL_QuanLiDeTaiNCKH.csproj", "{9F44D139-92B1-4226-A6E8-8BF29E426DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_QuanLiDeTaiNCKH", "DAL_QuanLiDeTaiNCKH\DAL_QuanLiDeTaiNCKH.csproj", "{B1EE2ACD-6A0D-4B36-9CCE-7B625603F187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO_QuanLiDeTaiNCKH", "DTO_QuanLiDeTaiNCKH\DTO_QuanLiDeTaiNCKH.csproj", "{CDF7721F-2DA8-4A73-B931-0384BE3EC868}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		DanhSachDeTai.xml = DanhSachDeTai.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4801B71B-4C7F-46DF-BE08-E6CF9091AEB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4801B71B-4C7F-46DF-BE08-E6CF9091AEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4801B71B-4C7F-46DF-BE08-E6CF9091AEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4801B71B-4C7F-46DF-BE08-E6CF9091AEB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F44D139-92B1-4226-A6E8-8BF29E426DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F44D139-92B1-4226-A6E8-8BF29E426DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F44D139-92B1-4226-A6E8-8BF29E426DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F44D139-92B1-4226-A6E8-8BF29E426DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1EE2ACD-6A0D-4B36-9CCE-7B625603F187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EE2ACD-6A0D-4B36-9CCE-7B625603F187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EE2ACD-6A0D-4B36-9CCE-7B625603F187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EE2ACD-6A0D-4B36-9CCE-7B625603F187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF7721F-2DA8-4A73-B931-0384BE3EC868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF7721F-2DA8-4A73-B931-0384BE3EC868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF7721F-2DA8-4A73-B931-0384BE3EC868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF7721F-2DA8-4A73-B931-0384BE3EC868}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79FDB276-4101-4918-9581-DB126BE726E5}
+	EndGlobalSection
+EndGlobal
