@@ -114,9 +114,9 @@ namespace DTO_QuanLiDeTaiNCKH
 
         public virtual void Xuat()
         {
-            double totalCost = TinhTongKinhPhi() / 1000000.0; // Đổi đơn vị sang triệu để hiển thị (chia cho 1,000,000).
-            Console.WriteLine("{0,-10} {1,-60} {2,-30} {3,-30} {4,-12:yyyy-MM-dd} {5,-12:yyyy-MM-dd} {6,15:N2}",
-                               MaDeTai, TenDeTai, ChuNhiemDeTai, GVHuongDan, NgayBatDau, NgayKetThuc, totalCost);
+            double totalCost = TinhTongKinhPhi() / 1000000.0;
+            Console.WriteLine("{0,-12} {1,-35} {2,-25} {3,-25} {4,-12:yyyy-MM-dd} {5,-12:yyyy-MM-dd} {6,18:N2}",
+                              MaDeTai, TenDeTai, ChuNhiemDeTai, GVHuongDan, NgayBatDau, NgayKetThuc, totalCost);
         }
 
         public int TinhThoiGianThucHien()
