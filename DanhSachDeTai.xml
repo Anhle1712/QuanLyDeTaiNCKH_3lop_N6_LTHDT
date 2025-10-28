@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DanhSachDeTai>
+  <DeTai>
+    <loai>1</loai>
+    <MaDeTai>LT001</MaDeTai>
+    <TenDeTai>Thuật toán sắp xếp</TenDeTai>
+    <ChuNhiemDeTai>Nguyễn Văn A</ChuNhiemDeTai>
+    <GVHuongDan>TS. Trần Thị Bình</GVHuongDan>
+    <NgayBatDau>2025-01-10</NgayBatDau>
+    <NgayKetThuc>2025-03-20</NgayKetThuc>
+    <ApDungThucTe>true</ApDungThucTe>
+  </DeTai>
+  <DeTai>
+    <loai>1</loai>
+    <MaDeTai>LT002</MaDeTai>
+    <TenDeTai>Độ phức tạp BST</TenDeTai>
+    <ChuNhiemDeTai>Trần Quốc Bảo</ChuNhiemDeTai>
+    <GVHuongDan>ThS. Lê Anh Dũng</GVHuongDan>
+    <NgayBatDau>2025-02-01</NgayBatDau>
+    <NgayKetThuc>2025-04-15</NgayKetThuc>
+    <ApDungThucTe>false</ApDungThucTe>
+  </DeTai>
+  <DeTai>
+    <loai>1</loai>
+    <MaDeTai>LT003</MaDeTai>
+    <TenDeTai>Học máy NLP</TenDeTai>
+    <ChuNhiemDeTai>Phạm Minh Châu</ChuNhiemDeTai>
+    <GVHuongDan>TS. Nguyễn Văn Lộc</GVHuongDan>
+    <NgayBatDau>2025-03-01</NgayBatDau>
+    <NgayKetThuc>2025-06-30</NgayKetThuc>
+    <ApDungThucTe>true</ApDungThucTe>
+  </DeTai>
+  <!-- ======= ĐỀ TÀI KINH TẾ ======= -->
+  <DeTai>
+    <loai>2</loai>
+    <MaDeTai>KT001</MaDeTai>
+    <TenDeTai>Hành vi tiêu dùng cà phê</TenDeTai>
+    <ChuNhiemDeTai>Võ Ngọc Duy</ChuNhiemDeTai>
+    <GVHuongDan>PGS.TS. Lý Thu Hà</GVHuongDan>
+    <NgayBatDau>2025-02-10</NgayBatDau>
+    <NgayKetThuc>2025-05-10</NgayKetThuc>
+    <SoCauHoiKhaoSat>150</SoCauHoiKhaoSat>
+  </DeTai>
+  <DeTai>
+    <loai>2</loai>
+    <MaDeTai>KT002</MaDeTai>
+    <TenDeTai>Tác động TMĐT đến việc làm</TenDeTai>
+    <ChuNhiemDeTai>Nguyễn Hải Đăng</ChuNhiemDeTai>
+    <GVHuongDan>TS. Phạm Hoài Nam</GVHuongDan>
+    <NgayBatDau>2025-03-15</NgayBatDau>
+    <NgayKetThuc>2025-06-30</NgayKetThuc>
+    <SoCauHoiKhaoSat>200</SoCauHoiKhaoSat>
+  </DeTai>
+  <!-- ======= ĐỀ TÀI CÔNG NGHỆ ======= -->
+  <DeTai>
+    <loai>3</loai>
+    <MaDeTai>CN001</MaDeTai>
+    <TenDeTai>IoT giám sát nhà</TenDeTai>
+    <ChuNhiemDeTai>Nguyễn Hoàng Phúc</ChuNhiemDeTai>
+    <GVHuongDan>TS. Lê Thanh Tú</GVHuongDan>
+    <NgayBatDau>2025-01-25</NgayBatDau>
+    <NgayKetThuc>2025-05-25</NgayKetThuc>
+    <MoiTruongTrienKhai>arduino va esp8266</MoiTruongTrienKhai>
+  </DeTai>
+  <DeTai>
+    <loai>3</loai>
+    <MaDeTai>CN002</MaDeTai>
+    <TenDeTai>Nhận diện khuôn mặt RPi</TenDeTai>
+    <ChuNhiemDeTai>Trần Minh Khoa</ChuNhiemDeTai>
+    <GVHuongDan>TS. Nguyễn Hữu Tài</GVHuongDan>
+    <NgayBatDau>2025-03-10</NgayBatDau>
+    <NgayKetThuc>2025-07-30</NgayKetThuc>
+    <MoiTruongTrienKhai>raspberry pi 5</MoiTruongTrienKhai>
+  </DeTai>
+  <DeTai>
+    <loai>3</loai>
+    <MaDeTai>CN003</MaDeTai>
+    <TenDeTai>Chatbot học tập</TenDeTai>
+    <ChuNhiemDeTai>Vũ Quỳnh Trang</ChuNhiemDeTai>
+    <GVHuongDan>TS. Trần Đức Lâm</GVHuongDan>
+    <NgayBatDau>2025-04-01</NgayBatDau>
+    <NgayKetThuc>2025-08-15</NgayKetThuc>
+    <MoiTruongTrienKhai>python va azure ai</MoiTruongTrienKhai>
+  </DeTai>
+	<!-- ======= phần thử thêm đề tài mới ======= -->
+	<DeTai>
+    <loai>1</loai>
+    <MaDeTai>LT365</MaDeTai>
+    <TenDeTai>Giải Tích</TenDeTai>
+    <ChuNhiemDeTai>Vũ Văn Vinh</ChuNhiemDeTai>
+    <GVHuongDan>Lâm Thị Họa Mi</GVHuongDan>
+    <NgayBatDau>2025-04-10</NgayBatDau>
+    <NgayKetThuc>2025-10-26</NgayKetThuc>
+    <ApDungThucTe>true</ApDungThucTe>
+  </DeTai>
+</DanhSachDeTai>
