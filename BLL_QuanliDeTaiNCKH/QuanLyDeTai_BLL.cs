@@ -1,11 +1,10 @@
-﻿// BLL_QuanLiDeTaiNCKH/QuanLyDeTaiBLL.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq; // Cần cho Where, OrderBy, Sum, Max, OfType...
-using DTO_QuanLiDeTaiNCKH; // Để sử dụng các lớp DeTai_DTO và interface
-using DAL_QuanLiDeTaiNCKH; // Để sử dụng DeTaiDAL
+using System.Linq; 
+using DTO_QuanLiDeTaiNCKH;
+using DAL_QuanLiDeTaiNCKH;
 
-namespace BLL_QuanLiDeTaiNCKH // Namespace phải đúng tên project
+namespace BLL_QuanLiDeTaiNCKH 
 {
     public class QuanLyDeTai_BLL
     {
@@ -22,7 +21,7 @@ namespace BLL_QuanLiDeTaiNCKH // Namespace phải đúng tên project
 
         // --- Các phương thức thao tác dữ liệu ---
 
-        // 1. Đọc dữ liệu từ DAL (Nhiệm vụ của Tuấn Kiệt trong ảnh)
+        // 1. Đọc dữ liệu từ DAL 
         public bool NapDuLieu()
         {
             danhSachDeTai = deTaiDAL.DocDanhSachDeTai();
@@ -33,11 +32,11 @@ namespace BLL_QuanLiDeTaiNCKH // Namespace phải đúng tên project
                 Console.WriteLine("Lỗi: Không thể nạp dữ liệu từ file.");
                 return false;
             }
-            // Console.WriteLine($"Đã nạp {danhSachDeTai.Count} đề tài."); // Thông báo (có thể bỏ)
-            return true; // Trả về true nếu thành công
+            // Console.WriteLine($"Đã nạp {danhSachDeTai.Count} đề tài.");
+            return true; 
         }
 
-        // 10. Lưu dữ liệu qua DAL (Có trong code Tuấn Kiệt)
+        // 10. Lưu dữ liệu qua DAL 
         public void LuuDuLieu()
         {
             if (danhSachDeTai != null)
@@ -125,14 +124,14 @@ namespace BLL_QuanLiDeTaiNCKH // Namespace phải đúng tên project
         }
 
 
-        // 7. Lọc theo kinh phí > 10 triệu (Nhiệm vụ của Tuấn) - Áp dụng cờ cập nhật
+        // 7. Lọc theo kinh phí > 10 triệu (Nhiệm vụ của Phạm Kiệt) - Áp dụng cờ cập nhật
         public List<DeTai_DTO> LocTheoKinhPhiLonHon(double nguong)
         {
             if (danhSachDeTai == null) return new List<DeTai_DTO>();
             return danhSachDeTai.Where(dt => TinhKinhPhiHienTai(dt) > nguong).ToList();
         }
 
-        // 8. Lọc Lý thuyết và Thực tế (Nhiệm vụ của Thanh Lộc)
+        // 8. Lọc Lý thuyết và Thực tế (Nhiệm vụ của Thành Lộc)
         public List<DeTai_DTO> LocLyThuyetVaThucTe()
         {
             if (danhSachDeTai == null) return new List<DeTai_DTO>();
@@ -143,7 +142,7 @@ namespace BLL_QuanLiDeTaiNCKH // Namespace phải đúng tên project
                 .ToList();
         }
 
-        // 9. Lọc Kinh tế có khảo sát > 100 câu (Nhiệm vụ của Thanh Lộc)
+        // 9. Lọc Kinh tế có khảo sát > 100 câu (Nhiệm vụ của Thành Lộc)
         public List<DeTai_DTO> LocKhaoSatTren(int soCau)
         {
             if (danhSachDeTai == null) return new List<DeTai_DTO>();
@@ -154,7 +153,7 @@ namespace BLL_QuanLiDeTaiNCKH // Namespace phải đúng tên project
                 .ToList();
         }
 
-        // 10. Lọc theo thời gian > 4 tháng (Nhiệm vụ của Thanh Lộc)
+        // 10. Lọc theo thời gian > 4 tháng (Nhiệm vụ của Thành Lộc)
         public List<DeTai_DTO> LocThoiGianTren(int soThang)
         {
             if (danhSachDeTai == null) return new List<DeTai_DTO>();

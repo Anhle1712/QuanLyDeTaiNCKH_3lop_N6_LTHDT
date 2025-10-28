@@ -40,8 +40,7 @@ namespace DTO_QuanLiDeTaiNCKH
 
         public override double TinhKinhPhiCoBan()
         {
-            // Nếu có thể áp dụng thực tế: 15 triệu, còn lại 12 triệu
-            return ApDungThucTe ? 15000000 : 12000000;
+            return ApDungThucTe ? 15000000 : 8000000;
 
         }
     }

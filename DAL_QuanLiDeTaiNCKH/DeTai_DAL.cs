@@ -1,12 +1,12 @@
-﻿// DAL_QuanLiDeTaiNCKH/DeTaiDAL.cs
+﻿
 using System;
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
-using DTO_QuanLiDeTaiNCKH; // Quan trọng: Đảm bảo using đúng namespace DTO
-using System.Xml.Linq; // Thêm cho phần ghi file (lấy từ code của Tuấn Kiệt)
+using DTO_QuanLiDeTaiNCKH; 
+using System.Xml.Linq; 
 
-namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
+namespace DAL_QuanLiDeTaiNCKH 
 {
     public class DeTai_DAL
     {
@@ -32,7 +32,6 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
         }
 
         // --- Phương thức đọc file XML ---
-        // (Tổng hợp và chỉnh sửa từ code của Tuấn, Minh Thuận, Thanh Lộc, Tuấn Kiệt)
         public List<DeTai_DTO> DocDanhSachDeTai()
         {
             List<DeTai_DTO> dsDeTai = new List<DeTai_DTO>();
@@ -57,7 +56,7 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
             try
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load(fullPath); // Load từ đường dẫn tuyệt đối
+                doc.Load(fullPath); 
                 XmlNodeList nodeList = doc.SelectNodes("/DanhSachDeTai/DeTai");
 
                 foreach (XmlNode node in nodeList)
@@ -75,8 +74,6 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
                         continue; // Bỏ qua nếu không xác định được loại
                     }
 
-
-                    // Đọc các thông tin chung một cách an toàn hơn
                     string ma = node["MaDeTai"]?.InnerText ?? $"MA_LOI_{Guid.NewGuid()}";
                     string ten = node["TenDeTai"]?.InnerText ?? "N/A";
                     string cn = node["ChuNhiemDeTai"]?.InnerText ?? "N/A";
@@ -116,7 +113,6 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
                     catch (Exception nodeEx)
                     {
                         Console.WriteLine($"Lỗi xử lý node đề tài mã '{ma}': {nodeEx.Message}");
-                        // Có thể log chi tiết node gây lỗi: Console.WriteLine(node.OuterXml);
                     }
                 }
                 Console.WriteLine($"Đã đọc thành công {dsDeTai.Count} đề tài từ file XML!");
@@ -129,7 +125,7 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
             {
                 Console.WriteLine($"Lỗi truy cập file IO khi đọc: {ex.Message}");
             }
-            catch (Exception ex) // Bắt các lỗi khác
+            catch (Exception ex) 
             {
                 Console.WriteLine($"Lỗi không xác định khi đọc file: {ex.Message}");
             }
@@ -138,7 +134,6 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
         }
 
         // --- Phương thức ghi file XML ---
-        // (Tổng hợp và chỉnh sửa từ code của Tuấn Kiệt)
         public void GhiDanhSachDeTai(List<DeTai_DTO> dsDeTai)
         {
             if (dsDeTai == null)
@@ -153,7 +148,6 @@ namespace DAL_QuanLiDeTaiNCKH // Đảm bảo namespace đúng
             {
                 // Sử dụng XDocument để ghi cho dễ và có format đẹp hơn
                 XElement root = new XElement("DanhSachDeTai"); // Tạo root element
-
                 foreach (var dt in dsDeTai)
                 {
                     XElement deTaiElement = new XElement("DeTai"); // Tạo element cho mỗi đề tài

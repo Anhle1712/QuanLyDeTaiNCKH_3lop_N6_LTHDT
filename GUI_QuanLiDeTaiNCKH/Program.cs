@@ -1,11 +1,10 @@
-﻿// GUI_QuanLiDeTaiNCKH/Program.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text; // For Encoding
-using BLL_QuanLiDeTaiNCKH; // To use the BLL
-using DTO_QuanLiDeTaiNCKH; // To use DeTai_DTO and subclasses
+using System.Text;
+using BLL_QuanLiDeTaiNCKH; 
+using DTO_QuanLiDeTaiNCKH; 
 
-namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
+namespace GUI_QuanLiDeTaiNCKH
 {
     internal class Program
     {
@@ -67,12 +66,11 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
 
                 switch (choice)
                 {
-                    case 1: // Đọc XML (Tuấn Kiệt/Minh Thuận/Tuấn/Thanh Lộc)
+                    case 1: // Đọc XML 
                         Console.WriteLine("--- 1. Đọc danh sách đề tài từ file XML ---");
                         if (quanLyBLL.NapDuLieu())
                         {
                             Console.WriteLine("Đã nạp dữ liệu thành công.");
-                            // Optionally display after loading:
                             HienThiKetQua(quanLyBLL.HienThiDanhSach(), "Danh sách đề tài vừa nạp:");
                         }
                         else
@@ -80,48 +78,48 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
                             Console.WriteLine("Nạp dữ liệu thất bại. Kiểm tra lỗi file XML hoặc đường dẫn.");
                         }
                         break;
-                    case 2: // Thêm mới (Tuấn Kiệt)
+                    case 2: // Thêm mới 
                         Console.WriteLine("--- 2. Thêm mới đề tài ---");
                         DeTai_DTO dtMoi = NhapDeTaiMoi_GUI();
                         quanLyBLL.ThemDeTai(dtMoi); // BLL handles adding to list
                         break;
-                    case 3: // Xuất danh sách (Tuấn Kiệt/Minh Thuận)
+                    case 3: // Xuất danh sách
                         Console.WriteLine("--- 3. Xuất danh sách đề tài ---");
                         HienThiKetQua(quanLyBLL.HienThiDanhSach(), "Danh sách đề tài hiện tại:");
                         break;
-                    case 4: // Tìm kiếm (Minh Thuận)
+                    case 4: // Tìm kiếm 
                         Console.WriteLine("--- 4. Tìm kiếm đề tài ---");
                         Console.Write("Nhập từ khóa tìm kiếm (Mã/Tên/GV/CN): ");
                         string tuKhoa = Console.ReadLine();
                         HienThiKetQua(quanLyBLL.TimKiem(tuKhoa), $"Kết quả tìm kiếm cho '{tuKhoa}':");
                         break;
-                    case 5: // Xuất theo GV (Minh Thuận)
+                    case 5: // Xuất theo GV 
                         Console.WriteLine("--- 5. Xuất danh sách theo GV Hướng dẫn ---");
                         Console.Write("Nhập tên Giảng viên hướng dẫn: ");
                         string tenGV = Console.ReadLine();
                         HienThiKetQua(quanLyBLL.TimKiemTheoGV(tenGV), $"Đề tài của giảng viên '{tenGV}':");
                         break;
-                    case 6: // Cập nhật kinh phí (Tuấn)
+                    case 6: // Cập nhật kinh phí 
                         Console.WriteLine("--- 6. Cập nhật kinh phí (tăng 10%) ---");
                         quanLyBLL.CapNhatKinhPhiTang10Percent(); // BLL sets the flag
                         break;
-                    case 7: // Lọc KP > 10tr (Tuấn)
+                    case 7: // Lọc KP > 10tr 
                         Console.WriteLine("--- 7. Xuất danh sách đề tài có kinh phí trên 10 triệu ---");
                         HienThiKetQua(quanLyBLL.LocTheoKinhPhiLonHon(10000000), "Danh sách đề tài có kinh phí > 10 triệu:");
                         break;
-                    case 8: // Lọc LT & TT (Thanh Lộc)
+                    case 8: // Lọc LT & TT 
                         Console.WriteLine("--- 8. Xuất danh sách ĐT Lý thuyết & Áp dụng thực tế ---");
                         HienThiKetQua(quanLyBLL.LocLyThuyetVaThucTe(), "Danh sách đề tài Lý thuyết & Áp dụng thực tế:");
                         break;
-                    case 9: // Lọc KT > 100 câu (Thanh Lộc)
+                    case 9: // Lọc KT > 100 câu 
                         Console.WriteLine("--- 9. In ra danh sách ĐT Kinh tế có số câu KS > 100 ---");
                         HienThiKetQua(quanLyBLL.LocKhaoSatTren(100), "Danh sách đề tài Kinh tế có số câu KS > 100:");
                         break;
-                    case 10: // Lọc TG > 4 tháng (Thanh Lộc)
+                    case 10: // Lọc TG > 4 tháng 
                         Console.WriteLine("--- 10. In ra danh sách ĐT có thời gian TH > 4 tháng ---");
                         HienThiKetQua(quanLyBLL.LocThoiGianTren(4), "Danh sách đề tài có thời gian TH > 4 tháng:");
                         break;
-                    case 11: // Lưu file (Tuấn Kiệt)
+                    case 11: // Lưu file 
                         Console.WriteLine("--- 11. Lưu danh sách vào file XML ---");
                         quanLyBLL.LuuDuLieu(); // BLL calls DAL to save
                         Console.WriteLine("Đã lưu danh sách vào file XML.");
@@ -141,7 +139,6 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
         }
 
         // --- Helper: Input New Project (GUI Layer) ---
-        // (Adapted from Tuấn Kiệt's code)
         static DeTai_DTO NhapDeTaiMoi_GUI()
         {
             Console.WriteLine("Chọn loại đề tài cần thêm:");
@@ -150,14 +147,12 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
             Console.WriteLine("  3. Công nghệ");
             Console.Write("Lựa chọn loại: ");
             int loaiChoice;
-            // Input validation for type choice
             while (!int.TryParse(Console.ReadLine(), out loaiChoice) || loaiChoice < 1 || loaiChoice > 3)
             {
                 Console.Write("Loại không hợp lệ. Chọn lại (1-3): ");
             }
 
             DeTai_DTO dt = null;
-            // Create the correct type of object based on user choice
             switch (loaiChoice)
             {
                 case 1:
@@ -171,7 +166,6 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
                     break;
             }
 
-            // Call the Nhap() method polymorphically (it exists in the specific subclass)
             if (dt != null)
             {
                 dt.Nhap();
@@ -180,7 +174,6 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
         }
 
         // --- Helper: Display Results (GUI Layer) ---
-        // (Adapted from Tuấn, Minh Thuận, Thanh Lộc)
         static void HienThiKetQua(List<DeTai_DTO> danhSach, string title)
         {
             Console.WriteLine($"\n--- {title} ---");
@@ -191,10 +184,8 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
             }
 
             // --- Adjust Header Widths Again ---
-            // Tăng chiều rộng Chủ Nhiệm (30->32), GV Hướng Dẫn (30->35)
-            Console.WriteLine("{0,-12} {1,-40} {2,-32} {3,-35} {4,-12} {5,-12} {6,18}", // Increased widths more
+            Console.WriteLine("{0,-12} {1,-40} {2,-32} {3,-35} {4,-12} {5,-12} {6,18}", 
                               "Mã ĐT", "Tên Đề Tài", "Chủ Nhiệm", "GV Hướng Dẫn", "Bắt Đầu", "Kết Thúc", "Kinh Phí (Tr)");
-            // Điều chỉnh độ dài dòng gạch ngang
             Console.WriteLine(new string('-', 168)); // Approx: 12+40+32+35+12+12+18 + 6 spaces = 167
 
             bool updatedCost = quanLyBLL.DaCapNhatKinhPhi();
@@ -215,7 +206,7 @@ namespace GUI_QuanLiDeTaiNCKH // Ensure namespace matches project
                                    displayCostInMillions,
                                    updatedCost ? " (+10%)" : "");
             }
-            Console.WriteLine(new string('-', 168)); // Match header line length
+            Console.WriteLine(new string('-', 168)); 
             Console.WriteLine($"Tổng số đề tài hiển thị: {danhSach.Count}");
         }
     }

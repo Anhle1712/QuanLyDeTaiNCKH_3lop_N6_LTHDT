@@ -89,7 +89,7 @@ namespace DTO_QuanLiDeTaiNCKH
             ChuNhiemDeTai = Console.ReadLine();
             Console.Write("  Nhập GV Hướng dẫn: ");
             GVHuongDan = Console.ReadLine();
-            //Nhập ngày ở mức cơ bản (nên cải thiện thêm kiểm tra/parse hợp lệ)
+            
             try
             {
                 Console.Write("  Nhập Ngày bắt đầu (yyyy-MM-dd): ");

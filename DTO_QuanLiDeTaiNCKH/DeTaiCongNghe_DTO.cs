@@ -12,7 +12,6 @@ namespace DTO_QuanLiDeTaiNCKH
 
         public DeTaiCongNghe_DTO() : base()
         { }
-
         public DeTaiCongNghe_DTO(string maDT, string tenDT, string chuNhiem, string gvhd, System.DateTime start, System.DateTime end, string moiTruong) : base(maDT, tenDT, chuNhiem, gvhd, start, end)
 
         {
@@ -38,23 +37,19 @@ namespace DTO_QuanLiDeTaiNCKH
             base.Xuat();
             // Console.WriteLine($"   -> Môi trường: {MoiTruongTrienKhai}, Phí hỗ trợ: {TinhPhiHoTro():N0} đ");
         }
-
         public override double TinhKinhPhiCoBan()
         {
-            // Nếu môi trường triển khai là web hoặc mobile sẽ có kinh phí là 15 (triệu đồng), nếu môi trường window sẽ có kinh phí là 10 (triệu đồng).
             if (MoiTruongTrienKhai == "web" || MoiTruongTrienKhai == "mobile")
             {
                 return 15000000;
             }
-            else // Assuming "window" or default
+            else 
             {
                 return 10000000;
             }
         }
-
         public double TinhPhiHoTro()
         {
-            // 1 triệu cho mobile, 800 nghìn cho web, 500 nghìn cho window.
             switch (MoiTruongTrienKhai)
             {
                 case "mobile":
