@@ -37,7 +37,6 @@ namespace GUI_QuanLiDeTaiNCKH
             Console.WriteLine(" 8. Xuất danh sách ĐT Lý thuyết & Áp dụng TT");
             Console.WriteLine(" 9. In ra danh sách ĐT Kinh tế có số câu KS > 100");
             Console.WriteLine("10. In ra danh sách ĐT có thời gian TH > 4 tháng");
-            Console.WriteLine("11. Lưu danh sách vào file XML"); // Added Save option clearly
             Console.WriteLine(" 0. Thoát chương trình");
             Console.WriteLine("=============================================");
             // Display cost update status
@@ -57,9 +56,9 @@ namespace GUI_QuanLiDeTaiNCKH
                 HienThiMenu();
                 Console.Write("Nhập lựa chọn của bạn: ");
                 // Input validation loop
-                while (!int.TryParse(Console.ReadLine(), out choice) || choice < 0 || choice > 11)
+                while (!int.TryParse(Console.ReadLine(), out choice) || choice < 0 || choice > 10)
                 {
-                    Console.Write("Lựa chọn không hợp lệ. Vui lòng nhập lại (0-11): ");
+                    Console.Write("Lựa chọn không hợp lệ. Vui lòng nhập lại (0-10): ");
                 }
 
                 Console.Clear(); // Clear before executing action
@@ -116,13 +115,8 @@ namespace GUI_QuanLiDeTaiNCKH
                         HienThiKetQua(quanLyBLL.LocKhaoSatTren(100), "Danh sách đề tài Kinh tế có số câu KS > 100:");
                         break;
                     case 10: // Lọc TG > 4 tháng 
-                        Console.WriteLine("--- 10. In ra danh sách ĐT có thời gian TH > 4 tháng ---");
+                        Console.WriteLine("--- 10. In ra danh sách ĐT có thời gian TH 4 tháng trở lên ---");
                         HienThiKetQua(quanLyBLL.LocThoiGianTren(4), "Danh sách đề tài có thời gian TH > 4 tháng:");
-                        break;
-                    case 11: // Lưu file 
-                        Console.WriteLine("--- 11. Lưu danh sách vào file XML ---");
-                        quanLyBLL.LuuDuLieu(); // BLL calls DAL to save
-                        Console.WriteLine("Đã lưu danh sách vào file XML.");
                         break;
                     case 0: // Thoát
                         Console.WriteLine("Đang thoát chương trình...");
