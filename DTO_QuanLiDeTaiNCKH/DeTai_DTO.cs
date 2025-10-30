@@ -119,9 +119,17 @@ namespace DTO_QuanLiDeTaiNCKH
                               MaDeTai, TenDeTai, ChuNhiemDeTai, GVHuongDan, NgayBatDau, NgayKetThuc, totalCost);
         }
 
-        public int TinhThoiGianThucHien()
+        public double TinhThoiGianThucHien()
         {
-            return ((NgayKetThuc.Year - NgayBatDau.Year) * 12) + NgayKetThuc.Month - NgayBatDau.Month;
+            // Sử dụng TimeSpan để tính chính xác tổng số ngày
+            TimeSpan duration = NgayKetThuc - NgayBatDau;
+            double totalDays = duration.TotalDays;
+
+            // Chuyển đổi tổng số ngày sang tháng (dùng số ngày TB trong 1 tháng)
+            // (365.25 ngày/năm / 12 tháng/năm ≈ 30.4375)
+            double totalMonths = totalDays / 30.4375;
+
+            return totalMonths;
         }
 
         public abstract double TinhKinhPhiCoBan();

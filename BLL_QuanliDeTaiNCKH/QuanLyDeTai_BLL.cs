@@ -142,11 +142,11 @@ namespace BLL_QuanLiDeTaiNCKH
         // 10. Lọc theo thời gian > 4 tháng (Nhiệm vụ của Thành Lộc)
         public List<DeTai_DTO> LocThoiGianTren(int soThang)
         {
-            if (danhSachDeTai == null)
-                return new List<DeTai_DTO>();
-
+            if (danhSachDeTai == null) return new List<DeTai_DTO>();
+            // Bây giờ TinhThoiGianThucHien() trả về double (ví dụ: 4.1)
+            // Nên so sánh 4.1 > 4 (soThang) sẽ là true
             return danhSachDeTai
-                .Where(dt => dt.TinhThoiGianThucHien() >= soThang)
+                .Where(dt => dt.TinhThoiGianThucHien() > soThang)
                 .ToList();
         }
 

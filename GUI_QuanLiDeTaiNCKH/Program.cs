@@ -115,7 +115,7 @@ namespace GUI_QuanLiDeTaiNCKH
                         HienThiKetQua(quanLyBLL.LocKhaoSatTren(100), "Danh sách đề tài Kinh tế có số câu KS > 100:");
                         break;
                     case 10: // Lọc TG > 4 tháng 
-                        Console.WriteLine("--- 10. In ra danh sách ĐT có thời gian TH 4 tháng trở lên ---");
+                        Console.WriteLine("--- 10. In ra danh sách ĐT có thời gian TH trên 4 tháng  ---");
                         HienThiKetQua(quanLyBLL.LocThoiGianTren(4), "Danh sách đề tài có thời gian TH > 4 tháng:");
                         break;
                     case 0: // Thoát
