@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml;
-using System.IO;
-using DTO_QuanLiDeTaiNCKH; 
-using System.Xml.Linq; 
+using System.Xml; // Cần cho XmlDocument
+using System.IO;  // Cần cho Path, File, Directory
+using DTO_QuanLiDeTaiNCKH; // Cần để sử dụng các lớp DTO
 
-namespace DAL_QuanLiDeTaiNCKH 
+// using System.Xml.Linq; // Không cần nữa vì đã xóa hàm Ghi File
+
+namespace DAL_QuanLiDeTaiNCKH // Namespace phải khớp với tên project
 {
     public class DeTai_DAL
     {
@@ -31,6 +32,7 @@ namespace DAL_QuanLiDeTaiNCKH
         }
 
         // --- Phương thức đọc file XML ---
+        // (Giữ nguyên logic đọc file của bạn)
         public List<DeTai_DTO> DocDanhSachDeTai()
         {
             List<DeTai_DTO> dsDeTai = new List<DeTai_DTO>();
@@ -39,23 +41,14 @@ namespace DAL_QuanLiDeTaiNCKH
             if (!File.Exists(fullPath))
             {
                 Console.WriteLine($"Lỗi: Không tìm thấy file tại '{fullPath}'. Trả về danh sách rỗng.");
-                // Tạo file XML rỗng nếu chưa có
-                try
-                {
-                    new XDocument(new XElement("DanhSachDeTai")).Save(fullPath);
-                    Console.WriteLine($"Đã tạo file mới: {fullPath}");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Không thể tạo file XML mới: {ex.Message}");
-                }
+                // Nếu file không tồn tại, chỉ trả về danh sách rỗng, không cố tạo file mới ở đây
                 return dsDeTai;
             }
 
             try
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load(fullPath); 
+                doc.Load(fullPath);
                 XmlNodeList nodeList = doc.SelectNodes("/DanhSachDeTai/DeTai");
 
                 foreach (XmlNode node in nodeList)
@@ -88,11 +81,13 @@ namespace DAL_QuanLiDeTaiNCKH
                         switch (loai)
                         {
                             case 1: // Lý Thuyết
-                                bool adtt = bool.TryParse(node["ApDungThucTe"]?.InnerText, out var bAdtt) ? bAdtt : false;
+                                // Sửa lỗi IDE0075 (cách viết gọn hơn)
+                                bool.TryParse(node["ApDungThucTe"]?.InnerText, out bool adtt);
                                 dt = new DeTaiLyThuyet_DTO(ma, ten, cn, gv, bd, kt, adtt);
                                 break;
                             case 2: // Kinh Tế
-                                int cauhoi = int.TryParse(node["SoCauHoiKhaoSat"]?.InnerText, out var iCauhoi) ? iCauhoi : 0;
+                                // Sửa lỗi IDE0075
+                                int.TryParse(node["SoCauHoiKhaoSat"]?.InnerText, out int cauhoi);
                                 dt = new DeTaiKinhTe_DTO(ma, ten, cn, gv, bd, kt, cauhoi);
                                 break;
                             case 3: // Công nghệ
@@ -124,81 +119,12 @@ namespace DAL_QuanLiDeTaiNCKH
             {
                 Console.WriteLine($"Lỗi truy cập file IO khi đọc: {ex.Message}");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine($"Lỗi không xác định khi đọc file: {ex.Message}");
             }
 
             return dsDeTai;
-        }
-
-        // --- Phương thức ghi file XML ---
-        public void GhiDanhSachDeTai(List<DeTai_DTO> dsDeTai)
-        {
-            if (dsDeTai == null)
-            {
-                Console.WriteLine("Lỗi: Danh sách đề tài rỗng, không thể ghi file.");
-                return;
-            }
-
-            string fullPath = Path.GetFullPath(filePath);
-
-            try
-            {
-                // Sử dụng XDocument để ghi cho dễ và có format đẹp hơn
-                XElement root = new XElement("DanhSachDeTai"); // Tạo root element
-                foreach (var dt in dsDeTai)
-                {
-                    XElement deTaiElement = new XElement("DeTai"); // Tạo element cho mỗi đề tài
-
-                    // Thêm các element con chung
-                    deTaiElement.Add(new XElement("MaDeTai", dt.MaDeTai ?? ""));
-                    deTaiElement.Add(new XElement("TenDeTai", dt.TenDeTai ?? ""));
-                    deTaiElement.Add(new XElement("ChuNhiemDeTai", dt.ChuNhiemDeTai ?? ""));
-                    deTaiElement.Add(new XElement("GVHuongDan", dt.GVHuongDan ?? ""));
-                    deTaiElement.Add(new XElement("NgayBatDau", dt.NgayBatDau.ToString("yyyy-MM-dd")));
-                    deTaiElement.Add(new XElement("NgayKetThuc", dt.NgayKetThuc.ToString("yyyy-MM-dd")));
-
-                    // Thêm attribute "Loai" và element con riêng tùy theo type
-                    if (dt is DeTaiLyThuyet_DTO lt)
-                    {
-                        deTaiElement.SetAttributeValue("Loai", "LyThuyet"); // Hoặc dùng số 1 nếu muốn
-                        deTaiElement.Add(new XElement("loai", "1")); // Thêm thẻ <loai> cho nhất quán đọc
-                        deTaiElement.Add(new XElement("ApDungThucTe", lt.ApDungThucTe.ToString().ToLower()));
-                    }
-                    else if (dt is DeTaiKinhTe_DTO kt)
-                    {
-                        deTaiElement.SetAttributeValue("Loai", "KinhTe"); // Hoặc dùng số 2
-                        deTaiElement.Add(new XElement("loai", "2"));
-                        deTaiElement.Add(new XElement("SoCauHoiKhaoSat", kt.SoCauHoiKhaoSat.ToString()));
-                    }
-                    else if (dt is DeTaiCongNghe_DTO cn)
-                    {
-                        deTaiElement.SetAttributeValue("Loai", "CongNghe"); // Hoặc dùng số 3
-                        deTaiElement.Add(new XElement("loai", "3"));
-                        deTaiElement.Add(new XElement("MoiTruongTrienKhai", cn.MoiTruongTrienKhai ?? ""));
-                    }
-
-                    root.Add(deTaiElement); // Thêm đề tài vào root
-                }
-
-                XDocument doc = new XDocument(root); // Tạo document từ root
-                doc.Save(fullPath); // Lưu file (XDocument tự động format)
-
-                Console.WriteLine($"Đã ghi {dsDeTai.Count} đề tài vào file '{fullPath}'.");
-            }
-            catch (XmlException ex)
-            {
-                Console.WriteLine($"Lỗi XML khi ghi file: {ex.Message}");
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine($"Lỗi truy cập file IO khi ghi: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Lỗi không xác định khi ghi file: {ex.Message}");
-            }
         }
     }
 }

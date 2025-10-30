@@ -35,20 +35,6 @@ namespace BLL_QuanLiDeTaiNCKH
             // Console.WriteLine($"Đã nạp {danhSachDeTai.Count} đề tài.");
             return true; 
         }
-
-        // 10. Lưu dữ liệu qua DAL 
-        public void LuuDuLieu()
-        {
-            if (danhSachDeTai != null)
-            {
-                deTaiDAL.GhiDanhSachDeTai(danhSachDeTai);
-            }
-            else
-            {
-                Console.WriteLine("Lỗi: Danh sách đề tài chưa được khởi tạo để lưu.");
-            }
-        }
-
         // 2. Thêm đề tài mới (Nhiệm vụ của Tuấn Kiệt)
         public bool ThemDeTai(DeTai_DTO dt)
         {
