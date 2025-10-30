@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml; // Cần cho XmlDocument
-using System.IO;  // Cần cho Path, File, Directory
-using DTO_QuanLiDeTaiNCKH; // Cần để sử dụng các lớp DTO
+using System.Xml; 
+using System.IO;  
+using DTO_QuanLiDeTaiNCKH; 
 
-// using System.Xml.Linq; // Không cần nữa vì đã xóa hàm Ghi File
-
-namespace DAL_QuanLiDeTaiNCKH // Namespace phải khớp với tên project
+namespace DAL_QuanLiDeTaiNCKH 
 {
     public class DeTai_DAL
     {
@@ -32,7 +30,6 @@ namespace DAL_QuanLiDeTaiNCKH // Namespace phải khớp với tên project
         }
 
         // --- Phương thức đọc file XML ---
-        // (Giữ nguyên logic đọc file của bạn)
         public List<DeTai_DTO> DocDanhSachDeTai()
         {
             List<DeTai_DTO> dsDeTai = new List<DeTai_DTO>();
@@ -41,7 +38,7 @@ namespace DAL_QuanLiDeTaiNCKH // Namespace phải khớp với tên project
             if (!File.Exists(fullPath))
             {
                 Console.WriteLine($"Lỗi: Không tìm thấy file tại '{fullPath}'. Trả về danh sách rỗng.");
-                // Nếu file không tồn tại, chỉ trả về danh sách rỗng, không cố tạo file mới ở đây
+                // Nếu file không tồn tại, chỉ trả về danh sách rỗng
                 return dsDeTai;
             }
 
@@ -54,7 +51,7 @@ namespace DAL_QuanLiDeTaiNCKH // Namespace phải khớp với tên project
                 foreach (XmlNode node in nodeList)
                 {
                     // Ưu tiên đọc từ attribute "Loai" nếu có, nếu không thì đọc từ thẻ <loai>
-                    string loaiStr = node.Attributes["Loai"]?.Value; // Thử đọc attribute trước
+                    string loaiStr = node.Attributes["Loai"]?.Value; 
                     if (string.IsNullOrEmpty(loaiStr))
                     {
                         loaiStr = node["loai"]?.InnerText; // Nếu attribute không có, đọc thẻ <loai>
@@ -123,7 +120,6 @@ namespace DAL_QuanLiDeTaiNCKH // Namespace phải khớp với tên project
             {
                 Console.WriteLine($"Lỗi không xác định khi đọc file: {ex.Message}");
             }
-
             return dsDeTai;
         }
     }
